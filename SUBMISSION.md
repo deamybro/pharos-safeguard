@@ -7,7 +7,7 @@ pharos-safeguard
 Pharos SafeGuard is a three-mode onchain safety skill for Pharos Agent Center. PreFlight simulates and risk-scores proposed transactions, WalletScan audits live wallets and prepares approval revocations, and Sentinel approves, blocks, or escalates agent actions against user-defined wallet constitutions, budget limits, and confirmation gates.
 
 **GitHub link:**  
-YOUR_GITHUB_LINK_HERE
+https://github.com/deamybro/pharos-safeguard
 
 **Email Address:**  
 YOUR_EMAIL_HERE
