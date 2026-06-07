@@ -1,0 +1,17 @@
+{
+  "mode": "preflight",
+  "input_summary": "Transfer 10 USDC to 0x742d...a2F1",
+  "risk_level": "LOW",
+  "issues": [],
+  "gas_estimate": "21000 gas (0.00042 PHRS)",
+  "gas_sufficient": true,
+  "balance_check": {
+    "native_balance": "1.42 PHRS",
+    "token_balance": "1000 USDC",
+    "sufficient": true,
+    "details": "Token and gas balances appear sufficient."
+  },
+  "simulation_result": "SUCCESS",
+  "safe_to_execute": true,
+  "requires_confirmation": false
+}

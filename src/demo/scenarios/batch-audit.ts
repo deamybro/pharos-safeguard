@@ -1,0 +1,7 @@
+import { SkillInput } from "../../shared/types";
+
+export const batchAuditScenario: SkillInput = {
+  prompt:
+    "Audit this airdrop: send 10 USDC each to 0x1111111111111111111111111111111111111111, 0x2222222222222222222222222222222222222222, 0x1111111111111111111111111111111111111111, 0xBAD",
+  walletAddress: "0x3333333333333333333333333333333333333333"
+};

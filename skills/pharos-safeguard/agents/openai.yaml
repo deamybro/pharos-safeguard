@@ -1,0 +1,8 @@
+interface:
+  display_name: "Pharos SafeGuard"
+  short_description: "PreFlight, wallet audit, and agent safety gate"
+  brand_color: "#22C55E"
+  default_prompt: "Use $pharos-safeguard in the appropriate mode to check this Pharos action and preserve all safety-critical result fields."
+
+policy:
+  allow_implicit_invocation: true

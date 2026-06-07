@@ -1,0 +1,17 @@
+{
+  "mode": "preflight",
+  "input_summary": "Approve USDC for 0xDEAD...0000",
+  "risk_level": "HIGH",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "code": "UNLIMITED_APPROVAL",
+      "title": "Unlimited approval",
+      "description": "This approval can allow the spender to drain the full token balance.",
+      "recommendation": "Prefer a limited approval sized to the exact action."
+    }
+  ],
+  "simulation_result": "LIKELY_FAIL",
+  "safe_to_execute": false,
+  "requires_confirmation": true
+}

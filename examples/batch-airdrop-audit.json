@@ -1,0 +1,28 @@
+{
+  "mode": "preflight",
+  "input_summary": "Batch transfer to 50 recipients",
+  "risk_level": "MEDIUM",
+  "issues": [
+    {
+      "severity": "LOW",
+      "code": "DUPLICATE_RECIPIENTS",
+      "title": "Duplicate recipients",
+      "description": "The batch includes duplicate recipient addresses.",
+      "recommendation": "Deduplicate the batch list and recalculate totals."
+    },
+    {
+      "severity": "HIGH",
+      "code": "INVALID_ADDRESS",
+      "title": "Invalid address",
+      "description": "At least one address is malformed.",
+      "recommendation": "Fix invalid addresses before making any onchain call."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "BATCH_INSUFFICIENT_FUNDS",
+      "title": "Batch exceeds wallet balance",
+      "description": "The batch total appears greater than the available wallet balance.",
+      "recommendation": "Reduce the batch or fund the wallet before submitting."
+    }
+  ]
+}
