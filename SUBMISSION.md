@@ -1,40 +1,98 @@
-# Hackathon Submission
+# Pharos SafeGuard Skill Submission
 
-**Skill name:**  
-pharos-safeguard
+## Skill Name
 
-**Short description:**  
-Pharos SafeGuard is a three-mode onchain safety skill for Pharos Agent Center. PreFlight simulates and risk-scores proposed transactions, WalletScan audits live wallets and prepares approval revocations, and Sentinel approves, blocks, or escalates agent actions against user-defined wallet constitutions, budget limits, and confirmation gates.
+Pharos SafeGuard
 
-**GitHub link:**  
+## Short Description
+
+Pharos SafeGuard is an AI-agent onchain safety Skill for Pharos Atlantic Testnet. It protects users before and after onchain actions through three modes:
+
+- **Sentinel** enforces a user-defined wallet constitution and returns `APPROVED`, `CONFIRMATION_REQUIRED`, or `REJECTED`.
+- **WalletScan** audits live balances, token approvals, dangerous allowances, and transaction anomalies.
+- **PreFlight** checks balances, estimates gas, simulates proposed transactions, and scores risk before execution.
+
+SafeGuard is read-only by default. It never signs or broadcasts a transaction from Skill invocation, and every write action requires explicit wallet confirmation.
+
+Examples:
+
+- "Can my agent send 600 USDC under my standard constitution?"
+- "Scan this wallet for dangerous approvals."
+- "Simulate sending 0.001 PHRS before execution."
+- "Can my agent grant this unlimited token approval?"
+
+Flow: User Request -> Mode Selection -> Live Pharos Evidence / Constitution Rules -> Safety Verdict -> Human Confirmation Gate
+
+## GitHub Link
+
 https://github.com/deamybro/pharos-safeguard
 
-**Email Address:**  
+## How to Use
+
+Clone the repository:
+
+```bash
+git clone https://github.com/deamybro/pharos-safeguard.git
+cd pharos-safeguard
+```
+
+Verify the standalone Skill and Pharos connection:
+
+```bash
+node skills/pharos-safeguard/scripts/doctor.mjs
+```
+
+Invoke it from an AI agent:
+
+```text
+Use $pharos-safeguard in Sentinel mode to evaluate whether my agent can send 600 USDC from policy wallet 0x... using the standard constitution. Estimated USD value: 600.
+```
+
+```text
+Use $pharos-safeguard in WalletScan mode to scan 0x... for live balances, token approvals, dangerous approvals, and risks.
+```
+
+```text
+Use $pharos-safeguard in PreFlight mode to simulate sending 0.001 PHRS from 0x... to 0x....
+```
+
+Direct standalone invocation:
+
+```bash
+node skills/pharos-safeguard/scripts/invoke.mjs --mode sentinel --prompt "Can my agent send 600 USDC?" --wallet 0x... --usd 600 --constitution standard
+```
+
+Optional dashboard:
+
+```bash
+npm install
+npm run dev
+```
+
+## Supported Framework
+
+- Pharos Skill Engine
+- Codex/OpenAI-compatible Skills
+- Claude-compatible Skill folders
+- JavaScript/TypeScript and stdio consumers
+- Optional Next.js dashboard
+
+## Notes
+
+- Read-only by default; no private key required
+- Deterministic JSON output for agent pipelines
+- Explicit `preflight`, `walletscan`, and `sentinel` modes
+- Built-in installation and network health check
+- Live Pharos Atlantic Testnet support, Chain ID `688689`
+- WalletScan reports live-data status and exact historical scan coverage
+- Standalone Skill requires Node.js 18+ and no npm install
+- Dashboard requires npm install
+- Current release: SafeGuard `v1.1.1`
+
+## Email
+
 YOUR_EMAIL_HERE
 
-**Demo link, video, or screenshots:**  
-YOUR_DEMO_LINK_HERE
+## Demo Video
 
-**Instructions on how to use the Skill:**
-
-1. Download or clone the repository.
-2. Copy `skills/pharos-safeguard` into the Pharos Skill Engine skills directory. No npm install is required for the standalone Skill.
-3. Invoke the skill with a prompt such as:
-   `"Use $pharos-safeguard to simulate this transfer before execution, scan my wallet for risky approvals, and apply Sentinel policy before any write."`
-4. Or run the deterministic CLI:
-   `npm run skill -- --mode sentinel --prompt "Can my agent send 5 USDC?" --wallet 0x... --usd 5`
-5. Verify a standalone installation with:
-   `node scripts/doctor.mjs`
-6. The skill returns a structured decision package with live evidence, safety verdict, required confirmations, and an explicit no-broadcast execution policy.
-
-**Optional functional checks:**  
-`npm run typecheck`  
-`npm run demo:skill:safe`  
-`npm run demo:skill:unsafe`  
-`npm run build`
-
-**Supported framework:**  
-Pharos Skill Engine, Codex/OpenAI-compatible Skills, JavaScript/TypeScript consumers, and the included Next.js demo dashboard.
-
-**Additional notes or dependencies:**  
-Node.js 18+ is required for the standalone Skill runner. No npm install is required. SafeGuard is read-only by default and never broadcasts a transaction from skill invocation. The current live-chain configuration targets Pharos Atlantic Testnet.
+YOUR_DEMO_VIDEO_LINK_HERE
